@@ -1319,7 +1319,9 @@ MonoBehaviour:
   moveSpeed: 5
   clearCount: 4
   coinGet: {fileID: 8300000, guid: c93cdd274e042af4eba412c701ae6a1a, type: 3}
+  moveFloorFind: {fileID: 8300000, guid: 1578494fbe7eadb48b5c5b26b464077b, type: 3}
   jumpSpeed: 8
+  target: {fileID: 1537429927}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,7 +2341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1537429928
 MonoBehaviour:
   m_ObjectHideFlags: 0
