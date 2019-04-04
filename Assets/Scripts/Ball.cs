@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour
 
     //効果音
     public AudioClip coinGet;
+    public AudioClip moveFloorFind;
 
     //ジャンプ
     public float jumpSpeed;
@@ -22,6 +23,8 @@ public class Ball : MonoBehaviour
     private bool isJumping = false;
 
     private int coinCount = 0;
+
+    public GameObject target;
 
     // Start is called before the first frame update
     void Start()
@@ -63,12 +66,25 @@ public class Ball : MonoBehaviour
             //コインを1枚取得する毎に「coinCount」を1ずつ増加させる。
             coinCount++;
 
-            //もしも「coinCount」が2になったら（条件）
-            if(coinCount >= clearCount)
+            if(coinCount == 2){
+                //SetActive()メソッドはオブジェクトをアクティブ／非アクティブ状態にできる
+                target.SetActive(true);
+                //効果音
+                AudioSource.PlayClipAtPoint(moveFloorFind, transform.position);
+            }
+
+            //もしも「coinCount」が「clearCount」以上になったら（条件）
+            if(coinCount >= clearCount){
                 //GameClearシーンに遷移する
                 //遷移させるシーンは「名前」で特定するので「一言一句」合致させる
                 SceneManager.LoadScene("GameClear");
+            }
         }
+    }
+
+    //コインアイコン
+    public int Coin(){
+        return coinCount;
     }
 
     //ジャンプの復活
